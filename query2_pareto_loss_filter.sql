@@ -9,7 +9,7 @@ DESCRIPTION: Calculates the cumulative financial deficit across global markets.
 */
 
 WITH country_profitability AS (
-  -- Schritt 1: Isolation aller reinen Verlustmärkte
+  -- Step 1: Isolate all net loss markets
   SELECT
     country,
     ROUND(SUM(profit), 2) AS total_country_profit
@@ -19,7 +19,7 @@ WITH country_profitability AS (
 ),
 
 global_total_loss AS (
-  -- Schritt 2: Ermittlung des weltweiten Gesamtschadens über alle Verlustmärkte
+  -- Step 2: Calculate total global deficit across all net loss markets
   SELECT
     ROUND(SUM(total_country_profit), 2) AS global_deficit
   FROM country_profitability
@@ -28,12 +28,12 @@ global_total_loss AS (
 SELECT
   cp.country,
   cp.total_country_profit,
-  -- Analytische Window Function bildet die laufende Summe der Verluste
+  -- Analytical window function calculates the running total of global losses
   ROUND(
     SUM(cp.total_country_profit) OVER (ORDER BY cp.total_country_profit ASC), 
     2
   ) AS cumulative_loss,
-  -- Der Cross Join liefert die weltweite Basislinie für die relative Prozentrechnung
+  -- Cross join provides the global baseline for relative percentage calculation
   ROUND(
     (SUM(cp.total_country_profit) OVER (ORDER BY cp.total_country_profit ASC) / gtl.global_deficit) * 100, 
     2
