@@ -17,14 +17,17 @@ By architecting a robust ELT pipeline in Google BigQuery, this portfolio project
 
 To ensure financial safety and data scalability, the project was executed in three sequential phases:
 
+To ensure financial safety and data scalability, the project was executed in three sequential phases:
+
+```text
 +---------------------------------------+
 |  Phase 1: Agile Prototyping (Excel)  | --> Validated business rules & isolated Nigeria anomaly via Pivot Tables.
 +---------------------------------------+
-|
+                    |
 +---------------------------------------+
 |   Phase 2: Production Scaling (SQL)   | --> Engineered an enterprise ELT pipeline with 6 analytical queries in BigQuery.
 +---------------------------------------+
-|
+                    |
 +---------------------------------------+
 |  Phase 3: Executive BI (Upcoming)     | --> Designing an interactive Power BI C-Suite Performance Dashboard.
 +---------------------------------------+
