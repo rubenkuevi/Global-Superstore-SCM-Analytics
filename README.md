@@ -14,11 +14,10 @@ By architecting a robust ELT pipeline in Google BigQuery, this portfolio project
 
 ---
 
-## 3-Tier Architecture Framework
+### 3-Tier Architecture Framework
 
 To ensure financial safety and data scalability, the project was executed in three sequential phases:
 
-```text
 +---------------------------------------+
 |  Phase 1: Agile Prototyping (Excel)  | --> Validated business rules & isolated Nigeria anomaly via Pivot Tables.
 +---------------------------------------+
@@ -28,9 +27,14 @@ To ensure financial safety and data scalability, the project was executed in thr
 +---------------------------------------+
                     |
 +---------------------------------------+
-|  Phase 3: Executive BI (Upcoming)     | --> Designing an interactive Power BI C-Suite Performance Dashboard.
+|  Phase 3: Executive BI (Power BI)     | --> Built interactive C-Suite Performance Cockpit connected directly to BigQuery.
 +---------------------------------------+
 
+### Phase 3: Executive Power BI Cockpit Features
+- **Executive KPIs:** Real-time tracking of Total Sales ($12.64M), Total Profit ($1.47M), Profit Margin % (11.61%), Toxic Sales Share % (2.94%), and Distressed Orders (7,541).
+- **Pareto Loss Visualization:** Dynamic horizontal ranking isolating the 10 distressed markets responsible for 79.27% of global leakage.
+- **Discount Elasticity Matrix:** Visual breakdown of sales volume across discount tiers showing severe margin destruction above the 30% discount threshold.
+- **Category Profitability Drilldown:** Full-width matrix enabling instant drilldowns into Category and Sub-Category profit margins with automated conditional formatting for loss isolation.
 ```
 
 ---
