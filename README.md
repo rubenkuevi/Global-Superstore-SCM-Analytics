@@ -34,7 +34,7 @@ To ensure financial safety and data scalability, the project was executed in thr
 
 ## Dashboard Overview
 
-![Dashboard Overview](assets/dashboard_overview.png)
+![Dashboard Overview](dashboard_overview.png)
 
 **Executive KPI Suite:**
 * Total Sales: **$12.64M**
