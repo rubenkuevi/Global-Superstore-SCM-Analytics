@@ -36,8 +36,8 @@ SELECT
   SAFE_CAST(Order_Priority AS STRING) AS order_priority,
 
   -- Temporal Dimensions (Safe-Casting to protect against format corruption)
-  SAFE_CAST(Order_Date AS DATE) AS order_date,
-  SAFE_CAST(Ship_Date AS DATE) AS ship_date,
+  SAFE.PARSE_DATE('%m/%d/%Y', Order_Date) AS order_date,
+  SAFE.PARSE_DATE('%m/%d/%Y', Ship_Date) AS ship_date,
   SAFE_CAST(Quantity AS INT64) AS quantity,
   SAFE_CAST(Year AS INT64) AS year,
   SAFE_CAST(weeknum AS INT64) AS weeknum,
