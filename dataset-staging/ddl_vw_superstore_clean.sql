@@ -9,6 +9,8 @@ DESCRIPTION: Replicates production analytical schema across 28 validated fields.
              strategic operational risk indicator (triage_flag).
              Utilizes advanced string-cleaning, TRIM, and CASE logic to prevent 
              pipeline erosion and NULL degradation from localized formats.
+             Date fields are parsed explicitly via PARSE_DATE (DD.MM.YYYY format)
+             to prevent silent NULL degradation from ambiguous SAFE_CAST behavior.
 ===============================================================================
 */
 
@@ -35,9 +37,10 @@ SELECT
   SAFE_CAST(Ship_Mode AS STRING) AS ship_mode,
   SAFE_CAST(Order_Priority AS STRING) AS order_priority,
 
-  -- Temporal Dimensions (Safe-Casting to protect against format corruption)
-  SAFE.PARSE_DATE('%m/%d/%Y', Order_Date) AS order_date,
-  SAFE.PARSE_DATE('%m/%d/%Y', Ship_Date) AS ship_date,
+  -- Temporal Dimensions (Explicit PARSE_DATE for DD.MM.YYYY source format —
+  -- prevents silent NULL degradation that occurs with ambiguous SAFE_CAST)
+  SAFE.PARSE_DATE('%d.%m.%Y', Order_Date) AS order_date,
+  SAFE.PARSE_DATE('%d.%m.%Y', Ship_Date) AS ship_date,
   SAFE_CAST(Quantity AS INT64) AS quantity,
   SAFE_CAST(Year AS INT64) AS year,
   SAFE_CAST(weeknum AS INT64) AS weeknum,
