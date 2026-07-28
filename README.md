@@ -1,92 +1,18 @@
-```markdown
 # Global Superstore SCM Analytics Portfolio
 
 ## Executive Summary
 
 > "This project isolates the core commercial drivers behind a 79.27% global margin leakage across 10 distressed markets — proving the deficit is driven entirely by undifferentiated flat-rate discounting, not by logistics failures."
 
-By architecting a robust ELT pipeline in Google BigQuery and connecting it to an interactive C-Suite Power BI dashboard, this portfolio project deconstructs a severe margin collapse within a multi-regional retail network (51,291 transactions). While the operational logistics network performs efficiently, unhedged commercial sales incentives completely liquidated corporate profits across 10 core distressed countries.
+By architecting a robust ELT pipeline in Google BigQuery and an interactive Power BI dashboard, this portfolio project deconstructs a severe margin collapse within a multi-regional retail network (51,291 transactions). While the operational logistics network performs efficiently, unhedged commercial sales incentives completely liquidated corporate profits across 10 core distressed countries.
 
 ### Key Business Insights:
-* **The Pareto Deficit Concentration:** Just 10 countries account for exactly 79.27% of global net losses, spearheaded by Turkey, the Philippines, and Nigeria.
+* **The Pareto Deficit Concentration:** Just 10 countries account for exactly **79.27% of global net losses**, spearheaded by Turkey (-$98.4K) and Nigeria (-$80.8K).
 * **Logistics Performance Audit:** Operational lead-time analysis confirms that distressed markets operate at or below the global transit baseline. The root cause of the deficit is 0% operational drag, but 100% commercial leakage.
 * **Q4 Margin Contraction:** Time-series velocity mapping unmasks a systematic year-end profitability drop in Sub-Saharan Africa, pointing toward aggressive year-end volume-push strategies at the expense of margin health.
-* **Interactive Executive Dashboard:** Fully integrated Power BI C-Suite Cockpit connected directly to BigQuery, providing real-time KPI monitoring ($12.64M Sales, $1.47M Profit, 11.61% Margin, 2.94% Toxic Sales Share) and instant category drilldowns.
 
 ---
 
 ## 3-Tier Architecture Framework
 
 To ensure financial safety and data scalability, the project was executed in three sequential phases:
-
-```text
-+---------------------------------------+
-|  Phase 1: Agile Prototyping (Excel)   | --> Validated business rules & isolated Nigeria anomaly via Pivot Tables.
-+---------------------------------------+
-                    |
-+---------------------------------------+
-|   Phase 2: Production Scaling (SQL)   | --> Engineered an enterprise ELT pipeline with 6 analytical queries in BigQuery.
-+---------------------------------------+
-                    |
-+---------------------------------------+
-|  Phase 3: Executive BI (Power BI)     | --> Built interactive C-Suite Performance Cockpit connected live to BigQuery.
-+---------------------------------------+
-
-```
-
----
-
-## Phase 3: Executive Power BI Cockpit Features
-
-* **Executive KPI Suite:** Real-time tracking of Total Sales ($12.64M), Total Profit ($1.47M), Profit Margin % (11.61%), Toxic Sales Share % (2.94%), and Distressed Orders (7,541).
-* **Pareto Loss Ranking:** Dynamic horizontal bar visual isolating the 10 distressed markets responsible for 79.27% of global margin leakage.
-* **Discount Band Elasticity:** Column analysis mapping revenue volume across discount tiers, highlighting severe profit destruction beyond the 30% discount threshold.
-* **Category Profitability Drilldown:** Full-width matrix enabling instant hierarchical drilldowns into Categories and Sub-Categories with automated conditional formatting for rapid loss isolation.
-
----
-
-## Repository Structure & Query Map
-
-The analytical engine behind this portfolio consists of 6 production-ready SQL scripts, a clean staging DDL, and an enterprise Power BI model:
-
-| File Name | Analytical Scope | Key Engineering Highlights |
-| --- | --- | --- |
-| `ddl_vw_superstore_clean.sql` | Dataset Staging Layer | Robust string-cleaning (TRIM, REGEXP, CASE) guarding against NULL degradation and currency symbol corruption. |
-| `query1_nigeria_margin_collapse.sql` | High-Risk Market Isolation | Out-of-bounds filter isolates margins dropping below -100%. |
-| `query2_pareto_loss_filter.sql` | Global Deficit Concentration | Window functions (`SUM() OVER`) & Cross Joins to calculate the 79.27% baseline. |
-| `query3_discount_elasticity_matrix.sql` | Discount Band Elasticity | Multi-dimensional conditional aggregation (`CASE WHEN`) mapping revenue tiers. |
-| `query4_staging_ingestion_audit.sql` | Pipeline Debugging & Auditing | 3-way composite key check (`Order_ID` + `Sub_Category` + `Product_ID`) blocking m:n row explosion. |
-| `query5_logistics_efficiency_check.sql` | Operational Drag Analysis | Direct temporal calculation (`DATE_DIFF`) comparing regional lead times against global averages. |
-| `query6_regional_mom_trend_audit.sql` | Time-Series Profit Velocity | Relational `INNER JOIN` lookup, `DATE_TRUNC`, and `LAG()` with an automatic index-gap safety lock. |
-| `Global_Superstore_SCM_Margin_Leakage_Audit.pbix` | Executive Dashboard | Production Power BI model with DAX measure framework and live BigQuery connection. |
-
----
-
-## Core SCM Anomalies (The Archetypes)
-
-The data reveals three distinct corporate vulnerability patterns across the portfolio:
-
-### A. Total Commercial Inelasticity (Turkey & Nigeria)
-
-* **The Metric:** Dominant Toxic Flat-Rate Revenue Share.
-* **The Reality:** The sales distribution in these markets is completely decoupled from product manufacturing margins (COGS). Volume was pushed by applying standard flat-discounts exceeding 50% (historically locked at 70% flat for Nigeria and 60% flat for Turkey) across entire product cohorts.
-
-### B. Hidden Contractual Erosion (The Netherlands)
-
-* **The Metric:** Rigid 50.0% Discount Blindness.
-* **The Reality:** A seemingly moderate aggregate country discount masks a rigid corporate contract error. Across high-volume sub-categories (such as Bookcases), discounts were locked at exactly 50.0%, creating a structural margin bleed despite flawless freight execution.
-
-### C. Toxic Promotion Dependency (LATAM Region)
-
-* **The Metric:** Near-Zero Full-Price Revenue Share.
-* **The Reality:** In markets like Honduras, Panama, and Argentina, the baseline full-price retail engine is non-existent. Overwhelming parts of the sales volume depend heavily on continuous promotion bands, making the entire regional sales model a financial liability.
-
----
-
-## Data Source & Replication Note
-
-The SQL scripts reference a production-scaled Cloud instance (`global-supply-project.gym_supply_portfolio.vw_superstore_clean`). The baseline schema is built upon the standardized Global Superstore Dataset (51,291 records).
-
-```
-
-```
