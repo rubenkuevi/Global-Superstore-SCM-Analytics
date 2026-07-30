@@ -9,7 +9,7 @@ By architecting a robust ELT pipeline in Google BigQuery and an interactive Powe
 ### Key Business Insights:
 * **The Pareto Deficit Concentration:** Just 10 countries account for exactly **79.27% of global net losses**, spearheaded by Turkey (-$98.4K) and Nigeria (-$80.8K).
 * **Logistics Performance Audit:** Operational lead-time analysis confirms that distressed markets operate at or below the global transit baseline. The root cause of the deficit is 0% operational drag, but 100% commercial leakage.
-* **December Deficit Anomaly:** Time-series analysis reveals December underperformance across all regions, but Sub-Saharan Africa's December deficit is 3-5x steeper than in any other region, pointing to an isolated year-end pricing or fulfillment breakdown specific to that market.
+* **December Deficit Anomaly:** Time-series analysis reveals December underperformance across all regions, but Sub-Saharan Africa's December deficit is consistently the steepest, at times over 20x worse than the mildest-affected region, pointing to an isolated year-end pricing or fulfillment breakdown.
 
 ---
 
