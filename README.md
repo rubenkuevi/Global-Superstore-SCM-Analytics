@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-> "This project isolates the core commercial drivers behind a 79.27% global margin leakage across 10 distressed markets — proving the deficit is driven entirely by undifferentiated flat-rate discounting, not by logistics failures."
+> "This project isolates the 10 distressed markets that concentrate 79.27% of all global net losses — proving the deficit is driven entirely by undifferentiated flat-rate discounting, not by logistics failures."
 
 By architecting a robust ELT pipeline in Google BigQuery and an interactive Power BI dashboard, this portfolio project deconstructs a severe margin collapse within a multi-regional retail network (51,291 transactions). While the operational logistics network performs efficiently, unhedged commercial sales incentives completely liquidated corporate profits across 10 core distressed countries.
 
